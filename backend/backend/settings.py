@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'corsheaders',
-    'frontend'
+    'serveAdda'
 ]
 
 MIDDLEWARE = [
@@ -52,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'serveAdda.middleware.TenantMiddleware',
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -79,12 +80,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'serveadda_db',
-        'USER': 'root',
-        'PASSWORD': '', # Apne MySQL server ka password yahan dalein
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+         'ENGINE' : 'django.db.backends.mysql',
+        'NAME' : 'serveAdda_db',
+        'USER' : 'root',
+        'PASSWORD' : '123456',
+        'HOST' : 'localhost',
+        'PORT' : '3306'
     }
 }
 
@@ -151,4 +152,5 @@ MAILERS = {
     },
 }
 
-AUTH_USER_MODEL = 'frontend.User'
+AUTH_USER_MODEL = 'serveAdda.User'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
